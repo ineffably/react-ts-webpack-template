@@ -1,0 +1,12 @@
+{
+  "name": "react-ts-webpack-template",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "A template for most of my client-side non-monorepo SPA projects using React, TypeScript, Jest and Webpack."
+}
