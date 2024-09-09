@@ -1,5 +1,7 @@
 # React Typescript Webpack Template
 
+Boilerplate for react single page client apps built with webpack and written in typescript. Hostable in github pages.
+
 ## Usage
 
 Clone the repo and decouple the origin

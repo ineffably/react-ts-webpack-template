@@ -4,6 +4,11 @@ import { App } from '../src/components/app'
 import { fetchMock } from './fetch-mock';
 import '@testing-library/jest-dom'
 
+// Link needs to be mocked
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  Link: jest.fn().mockImplementation(({ children }) => children)
+}));
 
 describe('Basic tests', () => {
   const testData = {

@@ -8,3 +8,4 @@ if(container){
   ReactDOM.createRoot(container).render(element);
 }
 
+(window as any).__isLoaded = true;

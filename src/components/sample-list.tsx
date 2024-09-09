@@ -9,8 +9,7 @@ export const SampleList = ({ characters }: { characters: Characters}) => {
       <h1>Characters</h1>
       <ul>
         {characters.data?.map((character) => (
-          // <li key={character._id}><Link to={`/characters/${character._id}`}  >{character.name}</Link></li>
-          <li key={character._id}>{character.name}</li>
+          <li key={character._id}><Link to={`/characters/${character._id}`}  >{character.name}</Link></li>
         ))}
       </ul>
     </div>

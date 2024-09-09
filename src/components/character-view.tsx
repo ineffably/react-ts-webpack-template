@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Character } from '../types/sample-api-types';
+import { AppContext } from './state-provider';
 
 export const CharacterView = ({ id = '' }: { id?: string }) => {
+  const { state, dispatch } = useContext(AppContext);
   if (!id || id === '') return <div>Invalid ID</div>;
   const [character, setCharacter] = useState<Character>({});
 
@@ -26,7 +28,7 @@ export const CharacterView = ({ id = '' }: { id?: string }) => {
     init();
   }, [id]);
 
-  const ItemList = ({ items = [] }: { items: string[] }) => (items.map(entry => <div>{entry}</div>));
+  const ItemList = ({ items = [] }: { items: string[] }) => (items.map((entry, index) => <div key={index}>{entry}</div>));
 
   return (
     <div>
@@ -45,6 +47,11 @@ export const CharacterView = ({ id = '' }: { id?: string }) => {
       <h2>Character Data</h2>
       <pre>
         {JSON.stringify(character, null, 2)}
+      </pre>
+      <hr />
+      <pre>
+        app state: <br/>
+        {JSON.stringify(state, null, 2)}
       </pre>
     </div>
   )
