@@ -18,9 +18,9 @@ export const CharacterView = ({ id = '' }: { id?: string }) => {
 
   useEffect(() => {
     const init = async () => {
-      const sampleUrl = `https://api.disneyapi.dev/character/${id}`;
-      const { data } = await (await fetch(sampleUrl)).json() || {};
-      console.log('character data:', data);
+      const sampleItemUrl = `https://api.disneyapi.dev/character/${id}`;
+      const { data } = await (await fetch(sampleItemUrl)).json() || {};
+      // console.log('item data:', data);
       setCharacter(data);
     }
     init();
