@@ -6,7 +6,7 @@ Boilerplate for react single page client apps built with webpack and written in 
 
 Clone the repo and decouple the origin
 ```
-git clone 
+git clone git@github.com:ineffably/react-ts-webpack-template.git
 cd react-ts-webpack-template
 rm -rf ./git/
 git init
