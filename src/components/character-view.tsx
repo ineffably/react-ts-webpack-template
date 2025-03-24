@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
-import { Character } from '../types/sample-api-types';
+import { Character } from '../types/api-types';
 import { AppContext } from './state-provider';
 
 export const CharacterView = ({ id = '' }: { id?: string }) => {
-  const { state, dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
   if (!id || id === '') return <div>Invalid ID</div>;
   const [character, setCharacter] = useState<Character>({});
 
@@ -22,7 +22,6 @@ export const CharacterView = ({ id = '' }: { id?: string }) => {
     const init = async () => {
       const sampleItemUrl = `https://api.disneyapi.dev/character/${id}`;
       const { data } = await (await fetch(sampleItemUrl)).json() || {};
-      // console.log('item data:', data);
       setCharacter(data);
     }
     init();

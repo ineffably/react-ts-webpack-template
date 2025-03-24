@@ -1,7 +1,7 @@
 import type { AppState, ReducerActions } from "./types/app-types.d";
 
 const persistState = (state: AppState) => {
-  // this allows us to persist the state to local storage
+  // this allows us to persist certain state values to local storage
   // or other opperations that we might want to do when the state changes
   // putLocalData('app-prototype', state);
   return state;
@@ -24,8 +24,8 @@ export const appReducer = (
       });
     default: {
       // we should warn if we get here as we don't have a handler for the payload type
-      console.warn('StoreReducer: type not handled', type);
-      console.warn('StoreReducer: payload', payload);
+      console.warn('app-reducer: type not handled', type);
+      console.warn('app-reducer: payload', payload);
       return persistState({ ...lastState });
     }
   }

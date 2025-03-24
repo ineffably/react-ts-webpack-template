@@ -1,26 +1,17 @@
 import { App } from './app'
 import { CharacterView } from './character-view';
 import { StateProvider } from './state-provider'
-import { createHashRouter, RouterProvider, useParams } from "react-router-dom";
+import { Route } from "wouter";
 
 export const AppRoot = () => {
-
-  const CharacterRoute = () => (
-    <CharacterView {...useParams()} />
-  )
-
-  const router = createHashRouter([{
-    path: '*',
-    element: <App />
-  },
-  {
-    path: '/characters/:id',
-    element: <CharacterRoute />
-  }]);
-
   return (
     <StateProvider>
-      <RouterProvider router={router} />
+      <Route path="/" >
+        <App />
+      </Route>
+      <Route path="/characters/:id" >
+        {(params: any) => <CharacterView id={params.id} />}
+      </Route>
     </StateProvider>
   )
 }

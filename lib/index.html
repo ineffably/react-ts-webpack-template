@@ -11,12 +11,15 @@
 </body>
 <script>
   window.addEventListener('load', () => {
-    if (!window.__isLoaded) {
-      console.log('== bundle not loaded. attempting manual bundle ==');
-      const script = document.createElement('script');
-      script.src = './lib/index.js'; // set static in webpack dev server to root 
-      document.body.appendChild(script);
-    }
+    window.setTimeout(() => {
+      if (!window.__appLoaded) {
+        console.log('== bundle not loaded. attempting manual bundle ==');
+        const script = document.createElement('script');
+        script.src = './lib/index.js?v=' + Date.now(); // set static in webpack dev server to root 
+        document.body.appendChild(script);
+        window.__appLoaded = true;
+      }
+    }, 10)
   })
 </script>
 

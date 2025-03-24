@@ -5,10 +5,13 @@ import { fetchMock } from './fetch-mock';
 import '@testing-library/jest-dom'
 
 // Link needs to be mocked
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  Link: jest.fn().mockImplementation(({ children }) => children)
-}));
+jest.mock('wouter', () => {
+  return ({
+    Link: jest.fn().mockImplementation(({ children }) => children)
+  })
+})
+// fetch needs to be mocked
+// ;
 
 describe('Basic tests', () => {
   const testData = {
@@ -25,7 +28,7 @@ describe('Basic tests', () => {
   const dispatch = jest.fn();
   let realUseContext;
   let useContextMock;
-  
+
   beforeEach(() => {
     realUseContext = React.useContext;
     useContextMock = React.useContext = jest.fn();
@@ -41,8 +44,8 @@ describe('Basic tests', () => {
     useContextMock.mockReturnValue({ state, dispatch })
     window.fetch = fetchMock({ json: testData });
 
-    await act( async () => render(<App/>));
-    expect(screen.getByText('App Goes Here')).toBeInTheDocument();
+    await act(async () => render(<App />));
+    expect(screen.getByText('Your application goes here')).toBeInTheDocument();
   });
 
 });

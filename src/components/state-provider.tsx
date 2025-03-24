@@ -21,7 +21,8 @@ export const StateProvider = ({ children, initState = emptyState }: StateProvide
   useEffect(() => {
     // use this to manage the initial state if it comes in as a prop from the app-root
     // console.log('ROOT:', {...state});
-    // you can dispatch the initial state here if you want
+    // you can also dispatch the initial state here if you want
+    // this might be useful, but, carries one more render
     // dispatch({ type: 'InitState', payload: initState })
   }, [])
 

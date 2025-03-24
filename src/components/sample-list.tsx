@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { Characters } from "../types/sample-api-types";
+import { Characters } from "../types/api-types";
+import { Link } from "wouter";
 
 export const SampleList = ({ characters }: { characters: Characters}) => {
   if(!characters.data) return null;
