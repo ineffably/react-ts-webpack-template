@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { createContext, useReducer, useEffect } from "react";
 import { AppState, ProviderState } from "../types/app-types";
-import { appReducer } from "../app-reducer";
+import { appReducer } from "../library/app-reducer";
 
 export const emptyState: AppState = {
   isLoaded: false,

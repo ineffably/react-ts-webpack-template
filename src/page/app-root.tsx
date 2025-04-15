@@ -1,5 +1,5 @@
 import { App } from './app'
-import { CharacterView } from './character-view';
+import { CharacterView } from '../components/character/character-view';
 import { StateProvider } from './state-provider'
 import { Route } from "wouter";
 
@@ -9,6 +9,8 @@ export const AppRoot = () => {
       <Route path="/" >
         <App />
       </Route>
+
+      {/* replace with your own view */}
       <Route path="/characters/:id" >
         {(params: any) => <CharacterView id={params.id} />}
       </Route>

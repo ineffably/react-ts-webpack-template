@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { AppRoot } from './components/app-root'
+import { AppRoot } from './page/app-root'
 
 (window as any).__appLoaded = true;
 

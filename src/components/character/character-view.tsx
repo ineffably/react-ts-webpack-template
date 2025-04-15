@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
-import { Character } from '../types/api-types';
-import { AppContext } from './state-provider';
+import { Character } from '../../types/api-types';
+import { AppContext } from '../../page/state-provider';
+import { AppStateJsonView } from '../app-state-json-view';
 
 export const CharacterView = ({ id = '' }: { id?: string }) => {
   const { state } = useContext(AppContext);
@@ -48,10 +49,7 @@ export const CharacterView = ({ id = '' }: { id?: string }) => {
         {JSON.stringify(character, null, 2)}
       </pre>
       <hr />
-      <pre>
-        app state: <br/>
-        {JSON.stringify(state, null, 2)}
-      </pre>
+      <AppStateJsonView />
     </div>
   )
 }

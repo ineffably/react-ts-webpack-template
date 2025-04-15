@@ -1,4 +1,4 @@
-import type { AppState, ReducerActions } from "./types/app-types.d";
+import type { AppState, ReducerActions } from "../types/app-types";
 
 const persistState = (state: AppState) => {
   // this allows us to persist certain state values to local storage
